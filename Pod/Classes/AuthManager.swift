@@ -88,7 +88,7 @@ open class AuthManager {
 	/// by refreshing the access token, or if that fails or there's no refresh token,
 	/// then the user is asked to authenticate via the Salesforce login web form.
 	/// - Returns: Asynchronous 'promise' of AuthData
-	internal func authorize() -> Promise<AuthData> {
+	public func authorize() -> Promise<AuthData> {
 		if let pending = self.pendingAuthorization, pending.promise.isPending {
 			// Already authorizing
 			return pending.promise
