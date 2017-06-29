@@ -38,7 +38,7 @@ open class AuthManager {
 	/// Property which contains data returned by Salesforce after successful OAuth2 authorization, including
 	/// access token, optional refresh token, identity URL, and instance URL. The 'didSet' observer attempts to
 	/// store the value in the secure iOS keychain, so the user (may) not have to re-authenticate on next app launch.
-	public internal(set) var authData: AuthData? = AuthDataStore.shared.retrieve(username: Constant.currentUsername.rawValue) {
+	public var authData: AuthData? = AuthDataStore.shared.retrieve(username: Constant.currentUsername.rawValue) {
 		didSet {
 			if let data = authData {
 				do {
