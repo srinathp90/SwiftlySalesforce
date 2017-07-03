@@ -136,7 +136,7 @@ open class AuthManager {
 	/// Revokes the stored refresh token or, if the refresh token is not available, then revokes the stored access token.
 	/// Salesforce revokes an associated access token, too, when revoking the refresh token.
 	/// - Returns: Asynchronous 'promise'
-	internal func revoke() -> Promise<Void> {
+	public func revoke() -> Promise<Void> {
 		if let promise = self.promisedRevocation, promise.isPending {
 			return promise
 		}
