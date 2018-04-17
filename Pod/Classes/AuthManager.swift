@@ -88,7 +88,7 @@ open class AuthManager {
 	/// by refreshing the access token, or if that fails or there's no refresh token,
 	/// then the user is asked to authenticate via the Salesforce login web form.
 	/// - Returns: Asynchronous 'promise' of AuthData
-	internal func authorize() -> Promise<AuthData> {
+	public func authorize() -> Promise<AuthData> {
 		if let pending = self.pendingAuthorization, pending.promise.isPending {
 			// Already authorizing
 			return pending.promise
@@ -136,7 +136,7 @@ open class AuthManager {
 	/// Revokes the stored refresh token or, if the refresh token is not available, then revokes the stored access token.
 	/// Salesforce revokes an associated access token, too, when revoking the refresh token.
 	/// - Returns: Asynchronous 'promise'
-	internal func revoke() -> Promise<Void> {
+	public func revoke() -> Promise<Void> {
 		if let promise = self.promisedRevocation, promise.isPending {
 			return promise
 		}
